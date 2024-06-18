@@ -1,0 +1,33 @@
+* {
+	font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+	font-size: 16px;
+}
+body {
+	margin: 0;
+	padding: 0;
+	height: 100vw;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+.head,
+.main,
+.foot {
+	width: 100vw;
+	padding: 8px 24px;
+	text-align: center;
+}
+.head {
+	height: 4rem;
+	background-color: red;
+	align-content: center;
+}
+.main {
+	height: auto;
+	background-color: teal;
+}
+.foot {
+	height: 4rem;
+	background-color: aqua;
+	align-content: center;
+}
