@@ -1,6 +1,9 @@
 <script setup>
 import { ref } from 'vue'
 import BasicStats from './BasicStats.vue'
+import Evaluation from './Evaluation.vue'
+import RecentExercises from './RecentExercises.vue'
+import Goals from './Goals.vue'
 defineProps({
     //   msg: String,
 })
