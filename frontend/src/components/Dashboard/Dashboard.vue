@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue'
-
+import BasicStats from './BasicStats.vue'
 defineProps({
     //   msg: String,
 })
@@ -13,7 +13,7 @@ const title = ref('GUITAR PRACTICE APP')
         <nav class=""></nav>
     </header>
     <div class="dashboard-layout">
-        <div class="basic-stats"></div>
+        <div class="basic-stats"><BasicStats/></div>
         <div class="evaluation"></div>
         <div class="recent-exercises"></div>
         <div class="goals"></div>

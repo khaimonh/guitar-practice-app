@@ -1,3 +1,7 @@
+* {
+    font-weight: bold;
+    margin: 0;
+}
 header {
     display: flex;
     min-width: 100vw;
@@ -7,4 +11,14 @@ header {
 header a {
     font-size: 24px;
     font-weight: bold;
+}
+
+.dashboard-layout {
+    display: grid;
+}
+
+.dashboard-layout > div {
+    background-color: #f7f9f9;
+    color: #702632;
+    padding: 0.5rem;
 }
