@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue'
-const moduleName = ref('Evaluation')
+const moduleName = ref('')
 </script>
 <template>
     <div class="content">
