@@ -3,9 +3,12 @@
     line-height: 1.5;
     font-weight: 400;
 
-    color-scheme: light dark;
-    color: rgba(255, 255, 255, 0.87);
-    background-color: #242424;
+   background-color: rgba(
+        247,
+        249,
+        249,
+        1
+    ); /* Translucent version of #7f79f9 */
 
     font-synthesis: none;
     text-rendering: optimizeLegibility;
@@ -26,7 +29,7 @@ body {
     margin: 0;
     /* display: flex; */
     /* min-width: 100vw; */
-    height: 100vh;
+     height: 100vh;
 }
 
 h1 {
@@ -63,7 +66,7 @@ button:focus-visible {
 
 .dashboard {
     display: grid;
-    grid-template-rows: 10vh 90vh;
+    grid-template-rows: 8vh 92vh;
     grid-template-areas:
         'header'
         'dashboard-content';
