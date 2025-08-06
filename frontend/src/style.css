@@ -25,8 +25,8 @@ a:hover {
 body {
     margin: 0;
     /* display: flex; */
-    min-width: 100vw;
-    min-height: 100vh;
+    /* min-width: 100vw; */
+    height: 100vh;
 }
 
 h1 {
@@ -56,11 +56,18 @@ button:focus-visible {
 #app {
     margin: 0;
     /* padding: 1rem; */
-    width: auto;
-    min-height:100%;
+    /* width: auto; */
+    min-height: 100%;
     /* text-align: center; */
 }
 
+.dashboard {
+    display: grid;
+    grid-template-rows: 10vh 90vh;
+    grid-template-areas:
+        'header'
+        'dashboard-content';
+}
 /* @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
