@@ -4,6 +4,8 @@ import BasicStats from './BasicStats.vue'
 import Evaluation from './Evaluation.vue'
 import RecentExercises from './RecentExercises.vue'
 import Goals from './Goals.vue'
+import Metronome from './Metronome.vue'
+import PracticeControl from './PracticeControl.vue'
 defineProps({
     //   msg: String,
 })
@@ -23,6 +25,8 @@ const title = ref('GUITAR PRACTICE APP')
         <div class="evaluation"><Evaluation /></div>
         <div class="recent-exercises"><RecentExercises /></div>
         <div class="goals"><Goals /></div>
+        <div class="metronome"><Metronome/></div>
+        <div class="practice-control"><PracticeControl/></div>
     </div>
 </template>
 <style scoped>
