@@ -5,9 +5,11 @@
 
 header {
     display: flex;
+    /* background-color: rgba(47, 62, 70, 0.1); */
     align-items: center;
     padding: 1.5rem;
     grid-area: header;
+    /* box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2); */
 }
 
 header a {
@@ -23,18 +25,26 @@ header a {
     padding-top: 0;
     /* border: 4px solid greenyellow; */
     grid-template-columns: 2.5fr 2.5fr 2fr 1.5fr 1.5fr;
-    /* grid-template-rows: auto; */
+    grid-template-rows: auto;
     gap: 24px;
     grid-template-areas:
         'basic-stats basic-stats basic-stats basic-stats recent-exercises'
-        'basic-stats basic-stats basic-stats basic-stats recent-exercises'
-        'evaluation evaluation goals goals recent-exercises';
+        'basic-stats basic-stats basic-stats basic-stats evaluation'
+        'basic-stats basic-stats basic-stats basic-stats goals';
 }
 
 .dashboard-layout > div {
-    background-color: rgba(47, 62, 70, 0.1);
+    /* background-color: rgba(47, 62, 70, 0.1); */
+    background-color: rgba(
+        247,
+        249,
+        249,
+        0.8
+    ); /* Translucent version of #7f79f9 */
     color: #702632;
-    padding: 0.5rem;
+    padding: 1rem;
+    border-radius: 8px;
+    text-align: left;
 }
 
 .basic-stats {

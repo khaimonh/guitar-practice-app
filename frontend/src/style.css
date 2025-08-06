@@ -3,13 +3,9 @@
     line-height: 1.5;
     font-weight: 400;
 
-   background-color: rgba(
-        247,
-        249,
-        249,
-        1
-    ); /* Translucent version of #7f79f9 */
 
+
+    background-color: rgba(47, 62, 70, 0.1);
     font-synthesis: none;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
