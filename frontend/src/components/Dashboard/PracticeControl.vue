@@ -1,18 +1,25 @@
 <script setup>
-import { ref } from 'vue'
-const moduleName = ref('Practice Controls: ')
+import { ref, computed } from 'vue'
+const moduleName = ref('Practice Controls')
 const time = ref('time')
-const currentBpm = ref('BPM')
+// const currentBpm = ref('BPM')
+const seconds = ref(0)
+const formattedTime = computed(() => {
+    const mins = Math.floor(seconds.value / 60)
+    const secs = seconds.value % 60
+    return `${mins.toString().padStart(2, '0')}:${secs
+        .toString()
+        .padStart(2, '0')}`
+})
 </script>
 <template>
     <div class="content">
         <div class="moduleName">{{ moduleName }}</div>
         <div class="current-session-info">
-            <div class="timer">Current time elapsed: {{ time }}</div>
+            <div class="timer">Current time elapsed: {{ formattedTime }}</div>
             <!-- <div class="current-bpm">{{ currentBpm }}</div> -->
         </div>
         <div class="btn-group">
-
             <button class="btn start-btn" @click="startPractice">START</button>
             <button class="btn pause-btn" @click="pausePractice">PAUSE</button>
             <button class="btn end-btn" @click="endPractice">END</button>
@@ -33,7 +40,7 @@ const currentBpm = ref('BPM')
     height: 100%;
 }
 
-.current-session-info{
+.current-session-info {
     display: flex;
     justify-content: space-around;
     align-items: center;

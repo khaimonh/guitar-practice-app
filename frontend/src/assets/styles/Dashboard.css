@@ -30,7 +30,8 @@ header a {
     grid-template-areas:
         'basic-stats basic-stats basic-stats basic-stats recent-exercises'
         'basic-stats basic-stats basic-stats basic-stats evaluation'
-        'basic-stats basic-stats basic-stats basic-stats goals';
+        'basic-stats basic-stats basic-stats basic-stats goals'
+        'metronome metronome practice-control practice-control practice-control';
 }
 
 .dashboard-layout > div {
@@ -65,4 +66,15 @@ header a {
 .goals {
     grid-area: goals;
     /* border: 2px solid purple; */
+}
+.practice-control {
+    grid-area: practice-control;
+    border-left: 4px solid #702632;
+    display: flex;
+    flex-direction: column;
+}
+.metronome {
+    grid-area: metronome;
+    border-left: 4px solid #3b82f6;
+    text-align: center;
 }
