@@ -10,8 +10,10 @@ defineProps({
     //   msg: String,
 })
 const title = ref('GUITAR PRACTICE APP')
+const currentBpm = ref(65)
 const handleBpmChange = (newBpm) => {
-    console.log(newBpm)
+    currentBpm.value = newBpm
+    console.log(currentBpm.value)
 }
 </script>
 
@@ -29,7 +31,8 @@ const handleBpmChange = (newBpm) => {
         <div class="recent-exercises"><RecentExercises /></div>
         <div class="goals"><Goals /></div>
         <div class="metronome">
-            <Metronome ref="metronomeRef" @bpm-changed="handleBpmChange" /> <!-- metronomeRef is an object with all the values passed from Metronome.vue, the event is bpm-changed will call handleBpmChange -->
+            <Metronome ref="metronomeRef" @bpm-changed="handleBpmChange" />
+            <!-- metronomeRef is an object with all the values passed from Metronome.vue, the event is bpm-changed will call handleBpmChange -->
         </div>
         <div class="practice-control"><PracticeControl /></div>
     </div>
