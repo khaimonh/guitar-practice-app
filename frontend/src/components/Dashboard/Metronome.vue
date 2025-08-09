@@ -1,11 +1,13 @@
 <script setup>
 import { ref, watch } from 'vue'
+// Define emits for parent component communication
+const emit = defineEmits(['bpm-changed']) //emits are definable events that parent listens for
 const moduleName = ref('Metronome')
 const bpm = ref(65) // Default BPM value
 const minBpm = 40
 const maxBpm = 240
 
-//watch runs every time the variable bpm is changed 
+//watch runs every time the variable bpm is changed
 //this function is to validate the bpm input
 watch(bpm, (newValue) => {
     if (newValue < minBpm) {
@@ -13,11 +15,11 @@ watch(bpm, (newValue) => {
     } else if (newValue > maxBpm) {
         bpm.value = maxBpm
     }
-    emit('bpm-changed', newValue) //lets parent know that bpm was changed and 
+    emit('bpm-changed', newValue) //lets parent know that bpm was changed and gives newValue
 })
 
 // Handle number input changes
-const handleNumberInput = (event) => {
+const handleBpmInput = (event) => {
     // Get the raw input value from the event
     const inputValue = event.target.value
 
@@ -29,36 +31,34 @@ const handleNumberInput = (event) => {
         // Update the bpm ref with the new value
         bpm.value = numericValue
     }
-    // If input is invalid (NaN), we ignore it and keep the current bpm value 
+    // If input is invalid (NaN), we ignore it and keep the current bpm value
 }
-  // Method to get current BPM (useful for practice session saving)
-    const getCurrentBPM = () => {
-        return bpm.value
-    }
+// Method to get current BPM (useful for practice session saving)
+const getCurrentBPM = () => {
+    return bpm.value
+}
 
-    // Method to reset BPM to default
-    const resetBPM = () => {
-        bpm.value = 65
-    }
+// Method to reset BPM to default
+const resetBPM = () => {
+    bpm.value = 65
+}
 
-    // Method to set BPM programmatically
-    const setBPM = (newBPM) => {
-        if (newBPM >= minBpm && newBPM <= maxBpm) {
-            bpm.value = newBPM
-        }
+// Method to set BPM programmatically
+const setBPM = (newBPM) => {
+    if (newBPM >= minBpm && newBPM <= maxBpm) {
+        bpm.value = newBPM
     }
+}
 
-    // Expose methods and reactive values to parent component
-    defineExpose({
-        bpm, // Reactive ref - parent can access bpm.value
-        getCurrentBPM, // Method to get current BPM value
-        resetBPM, // Method to reset BPM
-        setBPM, // Method to set BPM programmatically
-        // minBpm, // Min BPM constant
-        // maxBpm, // Max BPM constant
-    })
-// Define emits for parent component communication
-const emit = defineEmits(['bpm-changed']) //emits are definable events that parent listens for
+// Expose methods and reactive values to parent component
+defineExpose({
+    bpm, // Reactive ref - parent can access bpm.value
+    getCurrentBPM, // Method to get current BPM value
+    resetBPM, // Method to reset BPM
+    setBPM, // Method to set BPM programmatically
+    // minBpm, // Min BPM constant
+    // maxBpm, // Max BPM constant
+})
 </script>
 <template>
     <div class="content">
@@ -77,7 +77,7 @@ const emit = defineEmits(['bpm-changed']) //emits are definable events that pare
                     id="bpm-number"
                     type="number"
                     :value="bpm"
-                    @change="handleNumberInput"
+                    @change="handleBpmInput"
                     :min="minBpm"
                     :max="maxBpm"
                     class="bpm-number"
