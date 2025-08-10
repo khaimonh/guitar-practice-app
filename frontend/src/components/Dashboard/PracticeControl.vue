@@ -1,15 +1,66 @@
 <script setup>
 import { ref, computed } from 'vue'
+const emit = defineEmits(['end-practice'])
 const moduleName = ref('Practice Controls')
-const time = ref('time')
-// const currentBpm = ref('BPM')
-const seconds = ref(0)
+//const time = ref('time')
 const formattedTime = computed(() => {
     const mins = Math.floor(seconds.value / 60)
     const secs = seconds.value % 60
     return `${mins.toString().padStart(2, '0')}:${secs
         .toString()
         .padStart(2, '0')}`
+})
+
+//timer
+const seconds = ref(0)
+const isRunning = ref(false)
+const isPaused = ref(false)
+let intervalId = null
+
+const startPractice = () => {
+    if (!isRunning.value) {
+        seconds.value = 0
+        isRunning.value = true
+    }
+    if (!intervalId) {
+        intervalId = setInterval(() => {
+            seconds.value++
+        }, 1000)
+    }
+}
+const pausePractice = () => {
+    if (isRunning.value) {
+        if (isPaused.value) {
+            // Resume
+            isPaused.value = false
+            intervalId = setInterval(() => {
+                seconds.value++
+            }, 1000)
+        } else {
+            // Pause
+            isPaused.value = true
+            clearInterval(intervalId)
+            intervalId = null
+        }
+    }
+}
+const endPractice = () => {
+    emit('end-practice', seconds)
+    isRunning.value = false
+    isPaused.value = false
+    seconds.value = 0
+
+    if (intervalId) {
+        clearInterval(intervalId)
+        intervalId = null
+    }
+}
+const getSeconds = () => {
+    return seconds.value
+}
+defineExpose({
+    seconds,
+    getSeconds
 })
 </script>
 <template>
@@ -20,9 +71,27 @@ const formattedTime = computed(() => {
             <!-- <div class="current-bpm">{{ currentBpm }}</div> -->
         </div>
         <div class="btn-group">
-            <button class="btn start-btn" @click="startPractice">START</button>
-            <button class="btn pause-btn" @click="pausePractice">PAUSE</button>
-            <button class="btn end-btn" @click="endPractice">END</button>
+            <button
+                class="btn start-btn"
+                @click="startPractice"
+                :disabled="isRunning"
+            >
+                START
+            </button>
+            <button
+                class="btn pause-btn"
+                @click="pausePractice"
+                :disabled="!isRunning"
+            >
+                {{ isPaused ? 'RESUME' : 'PAUSE' }}
+            </button>
+            <button
+                class="btn end-btn"
+                @click="endPractice"
+                :disabled="!isRunning"
+            >
+                END
+            </button>
         </div>
     </div>
 </template>
@@ -100,5 +169,3 @@ const formattedTime = computed(() => {
     transform: translateY(-2px);
 } */
 </style>
-
-<!-- TODO: ADD METRONOME SLIDER, METRONOME NUM INPUT, NUM INPUT FOR PRACTICE CONTROLS -->
