@@ -1,12 +1,12 @@
 <script setup>
 // import HelloWorld from './components/HelloWorld.vue'
-  import Dashboard from './components/Dashboard/Dashboard.vue'
+import Dashboard from './components/Dashboard/Dashboard.vue'
 </script>
 
 <template>
     <!-- <HelloWorld msg="Vite + Vue" /> -->
-    <div class="dashboard">
-      <Dashboard />
+    <div id="app">
+        <router-view />
     </div>
 </template>
 

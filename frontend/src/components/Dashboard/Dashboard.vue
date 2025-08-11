@@ -15,7 +15,7 @@ const handleBpmChange = (newBpm) => {
     currentBpm.value = newBpm
     console.log(currentBpm.value)
 }
-const getSeconds = (seconds) =>{
+const getSeconds = (seconds) => {
     console.log(seconds.value)
 }
 </script>
@@ -23,10 +23,14 @@ const getSeconds = (seconds) =>{
 <template>
     <header>
         <div class="home">
-            <a href="http://localhost:5173">{{ title }}</a>
+            <router-link to="/dashboard">{{ title }}</router-link>
         </div>
         <!--change link-->
-        <nav class=""></nav>
+        <nav class="">
+            <router-link to="/library" class="nav-button"
+                >Exercise Library</router-link
+            >
+        </nav>
     </header>
     <div class="dashboard-layout">
         <div class="basic-stats"><BasicStats /></div>
@@ -37,7 +41,12 @@ const getSeconds = (seconds) =>{
             <Metronome ref="metronomeRef" @bpm-changed="handleBpmChange" />
             <!-- metronomeRef is an object with all the values passed from Metronome.vue, the event is bpm-changed will call handleBpmChange -->
         </div>
-        <div class="practice-control"><PracticeControl ref="practiceControlRef" @end-practice="getSeconds"/></div>
+        <div class="practice-control">
+            <PracticeControl
+                ref="practiceControlRef"
+                @end-practice="getSeconds"
+            />
+        </div>
     </div>
 </template>
 <style scoped>
