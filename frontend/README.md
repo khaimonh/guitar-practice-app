@@ -1,5 +1,24 @@
-# Vue 3 + Vite
+## TODO
+Models (data structures):
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+Models/User.cs - user accounts
+Models/PracticeFile.cs - practice content metadata
+Models/PracticeSession.cs - session tracking data
+Controllers (API endpoints):
 
-Learn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://vuejs.org/guide/scaling-up/tooling.html#ide-support).
+Controllers/AuthController.cs - login/register/verify
+Controllers/PracticeFilesController.cs - get practice content
+Controllers/SessionsController.cs - save/retrieve sessions
+Services (business logic):
+
+Services/AuthService.cs - JWT tokens, password hashing
+Services/PracticeFileService.cs - file management
+Services/SessionService.cs - session data handling
+Data (database):
+
+Data/AppDbContext.cs - Entity Framework context
+Data/Migrations/ - database schema
+Configuration:
+
+Update Program.cs - add services, middleware, CORS
+Update .csproj - add Entity Framework, JWT packages

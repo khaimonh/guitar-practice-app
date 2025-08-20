@@ -5,9 +5,8 @@ import Dashboard from './components/Dashboard/Dashboard.vue'
 
 <template>
     <!-- <HelloWorld msg="Vite + Vue" /> -->
-    <div id="app">
-        <router-view />
-    </div>
+
+    <router-view />
 </template>
 
 <!-- <style scoped>

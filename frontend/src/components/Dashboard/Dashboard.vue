@@ -21,31 +21,33 @@ const getSeconds = (seconds) => {
 </script>
 
 <template>
-    <header>
-        <div class="home">
-            <router-link to="/dashboard">{{ title }}</router-link>
-        </div>
-        <!--change link-->
-        <nav class="">
-            <router-link to="/exercise-library" class="nav-button"
-                >Exercise Library</router-link
-            >
-        </nav>
-    </header>
-    <div class="dashboard-layout">
-        <div class="basic-stats"><BasicStats /></div>
-        <div class="evaluation"><Evaluation /></div>
-        <div class="recent-exercises"><RecentExercises /></div>
-        <div class="goals"><Goals /></div>
-        <div class="metronome">
-            <Metronome ref="metronomeRef" @bpm-changed="handleBpmChange" />
-            <!-- metronomeRef is an object with all the values passed from Metronome.vue, the event is bpm-changed will call handleBpmChange -->
-        </div>
-        <div class="practice-control">
-            <PracticeControl
-                ref="practiceControlRef"
-                @end-practice="getSeconds"
-            />
+    <div class="dashboard">
+        <header>
+            <div class="home">
+                <router-link to="/dashboard">{{ title }}</router-link>
+            </div>
+            <!--change link-->
+            <nav class="">
+                <router-link to="/exercise-library" class="nav-button"
+                    >Exercise Library</router-link
+                >
+            </nav>
+        </header>
+        <div class="dashboard-layout">
+            <div class="basic-stats"><BasicStats /></div>
+            <div class="evaluation"><Evaluation /></div>
+            <div class="recent-exercises"><RecentExercises /></div>
+            <div class="goals"><Goals /></div>
+            <div class="metronome">
+                <Metronome ref="metronomeRef" @bpm-changed="handleBpmChange" />
+                <!-- metronomeRef is an object with all the values passed from Metronome.vue, the event is bpm-changed will call handleBpmChange -->
+            </div>
+            <div class="practice-control">
+                <PracticeControl
+                    ref="practiceControlRef"
+                    @end-practice="getSeconds"
+                />
+            </div>
         </div>
     </div>
 </template>
