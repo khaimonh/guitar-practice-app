@@ -27,7 +27,7 @@ const getSeconds = (seconds) => {
         </div>
         <!--change link-->
         <nav class="">
-            <router-link to="/library" class="nav-button"
+            <router-link to="/exercise-library" class="nav-button"
                 >Exercise Library</router-link
             >
         </nav>
